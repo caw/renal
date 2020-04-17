@@ -44,8 +44,6 @@ class BlueSolute extends Solute {
 }
 
 
-console.log('here')
-
 function setup() {
   createCanvas(w, h);
   background(0);
