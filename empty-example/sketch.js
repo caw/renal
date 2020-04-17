@@ -1,9 +1,10 @@
 const w = 800;
 const h = 600;
 
-const redCount = 500;
-const blueCount = 500;
+const redCount = 400;
+const blueCount = 400;
 
+const soluteDiameter = 3;
 const redArray = Array(redCount)
 const blueArray = Array(blueCount)
 
@@ -13,9 +14,9 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 
-class Molecule {
+class Solute {
   constructor() {
-    this.diameter = 5;
+    this.diameter = soluteDiameter;
     this.x = getRandomIntInclusive(100, 700);
     this.y = getRandomIntInclusive(100, 200);
   }
@@ -28,14 +29,14 @@ class Molecule {
   }
 }
 
-class RedMolecule extends Molecule {
+class RedSolute extends Solute {
   constructor() {
     super();
     this.color = "red"
   }
 }
 
-class BlueMolecule extends Molecule {
+class BlueSolute extends Solute {
   constructor() {
     super();
     this.color = "blue";
@@ -57,18 +58,16 @@ function setup() {
   line(100, 100, 700, 100);
   line(100, 200, 700, 200);
   pop();
+  // trap - redArray.fill(new RedSolute()) fills the array with the SAME redSolute object
   for (i = 0; i < redArray.length; i++) {
-    redArray[i] = new RedMolecule();
+    redArray[i] = new RedSolute();
   }
-  console.log(redArray)
   for (i = 0; i < blueArray.length; i++) {
-    blueArray[i] = new BlueMolecule();
+    blueArray[i] = new BlueSolute();
   }
-  console.log(blueArray)
 }
 
 function draw() {
-  console.log('in draw')
   for (const r of redArray) { r.draw() };
   for (const b of blueArray) { b.draw() };
 }
