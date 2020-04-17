@@ -8,6 +8,7 @@ const soluteDiameter = 3;
 const redArray = Array(redCount)
 const blueArray = Array(blueCount)
 
+// from MDN
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
